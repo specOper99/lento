@@ -1,3 +1,4 @@
+import { Flying3DCoffeeCup } from '@/components/effects/Flying3DCoffeeCup';
 import { MagicSparkles } from '@/components/effects/MagicSparkles';
 import { CarpetPattern } from '@/components/patterns/CarpetPattern';
 import { Divider } from '@/components/patterns/Divider';
@@ -27,6 +28,9 @@ export default async function HomePage({ params }: HomePageProps) {
         {/* Magic Sparkles */}
         <MagicSparkles count={30} />
         
+        {/* Flying 3D Arabic Ornament */}
+        <Flying3DCoffeeCup />
+        
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <CarpetPattern variant="geometric" className="w-full h-full" />
@@ -43,7 +47,7 @@ export default async function HomePage({ params }: HomePageProps) {
               <CarpetPattern variant="medallion" size={120} className="opacity-60" />
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-amiri font-bold leading-tight">
+            <h1 className="text-5xl md:text-7xl font-amiri font-bold leading-tight text-border-bg">
               {t('title')}
             </h1>
 
