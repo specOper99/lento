@@ -4,7 +4,7 @@ import { locales } from '@/i18n/request';
 import { ThemeProvider } from '@/lib/contexts/ThemeContext';
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import '../globals.css';
 
@@ -12,11 +12,20 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const metadata: Metadata = {
-  title: 'Lento Coffee - Crafted Slowly, Inspired by Heritage',
-  description: 'Experience luxury coffee with Arabian carpet aesthetics. Slow-roasted, artisanal coffee blends inspired by traditional craftsmanship.',
-  keywords: ['coffee', 'luxury coffee', 'Arabian coffee', 'artisan coffee', 'specialty coffee'],
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata' });
+ 
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: t('keywords').split(', '),
+  };
+}
 
 export default async function LocaleLayout({
   children,

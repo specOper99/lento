@@ -3,7 +3,8 @@
         "home": "Home",
         "products": "Products",
         "about": "About",
-        "contact": "Contact"
+        "contact": "Contact",
+        "brand": "Lento Coffee"
     },
     "hero": {
         "title": "Lento Coffee",
@@ -30,7 +31,14 @@
         "viewDetails": "View Details",
         "relatedProducts": "Related Products",
         "price": "Price",
-        "rating": "Rating"
+        "rating": "Rating",
+        "count": "{count, plural, =0 {No products} one {1 product} other {# products}}",
+        "noResults": "No products found matching your criteria",
+        "inStock": "In Stock",
+        "outOfStock": "Out of Stock",
+        "description": "Description",
+        "roastLevel": "Roast Level",
+        "origin": "Origin"
     },
     "about": {
         "title": "About Lento",
@@ -44,7 +52,26 @@
         "tradition": "Tradition",
         "traditionText": "Honoring centuries of coffee culture",
         "craftsmanship": "Craftsmanship",
-        "craftsmanshipText": "Every detail matters, every flavor refined"
+        "craftsmanshipText": "Every detail matters, every flavor refined",
+        "process": {
+            "title": "The Lento Process",
+            "step1": {
+                "title": "Selection",
+                "desc": "Carefully selected beans from the finest origins"
+            },
+            "step2": {
+                "title": "Roasting",
+                "desc": "Slow-roasted to perfection with patience"
+            },
+            "step3": {
+                "title": "Quality",
+                "desc": "Each batch tested for exceptional quality"
+            },
+            "step4": {
+                "title": "Delivery",
+                "desc": "Fresh coffee delivered with care"
+            }
+        }
     },
     "contact": {
         "title": "Contact Us",
@@ -57,6 +84,12 @@
             "submit": "Send Message",
             "success": "Thank you! We'll get back to you soon.",
             "error": "Something went wrong. Please try again."
+        },
+        "contactInfo": "Contact Information",
+        "details": {
+            "address": "Riyadh, Saudi Arabia",
+            "phone": "+966 XX XXX XXXX",
+            "email": "hello@lentocoffee.com"
         },
         "info": {
             "address": "Address",
@@ -95,5 +128,10 @@
         "en": "English",
         "ar": "Arabic",
         "toggle": "Change language"
+    },
+    "metadata": {
+        "title": "Lento Coffee - Crafted Slowly, Inspired by Heritage",
+        "description": "Experience luxury coffee with Arabian carpet aesthetics. Slow-roasted, artisanal coffee blends inspired by traditional craftsmanship.",
+        "keywords": "coffee, luxury coffee, Arabian coffee, artisan coffee, specialty coffee"
     }
 }

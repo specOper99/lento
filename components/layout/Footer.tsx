@@ -12,6 +12,7 @@ interface FooterProps {
 export function Footer({ locale }: FooterProps) {
   const t = useTranslations('footer');
   const tNav = useTranslations('nav');
+  const tContact = useTranslations('contact');
 
   const currentYear = new Date().getFullYear();
 
@@ -45,7 +46,7 @@ export function Footer({ locale }: FooterProps) {
           {/* Brand Column */}
           <div className="md:col-span-2">
             <h3 className="text-3xl font-amiri font-bold mb-4">
-              {locale === 'ar' ? 'قهوة لينتو' : 'Lento Coffee'}
+              {tNav('brand')}
             </h3>
             <p className="text-muted-foreground mb-6 max-w-md">
               {t('tagline')}
@@ -90,19 +91,19 @@ export function Footer({ locale }: FooterProps) {
               <li className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
                 <span className="text-muted-foreground text-sm">
-                  Riyadh, Saudi Arabia
+                  {tContact('details.address')}
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <Phone className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
                 <span className="text-muted-foreground text-sm">
-                  +966 XX XXX XXXX
+                  {tContact('details.phone')}
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
                 <span className="text-muted-foreground text-sm">
-                  hello@lentocoffee.com
+                  {tContact('details.email')}
                 </span>
               </li>
             </ul>
@@ -114,7 +115,7 @@ export function Footer({ locale }: FooterProps) {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <p>
-            © {currentYear} {locale === 'ar' ? 'قهوة لينتو' : 'Lento Coffee'}. {t('rights')}
+            © {currentYear} {tNav('brand')}. {t('rights')}
           </p>
           <div className="flex gap-6">
             <Link href="#" className="hover:text-secondary transition-colors">

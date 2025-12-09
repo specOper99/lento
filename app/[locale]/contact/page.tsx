@@ -171,14 +171,14 @@ export default function ContactPage() {
             <div className="space-y-8">
               {/* Contact Details */}
               <div className="p-8 bg-muted/30 rounded-lg">
-                <h2 className="text-2xl font-amiri font-bold mb-6">Contact Information</h2>
+                <h2 className="text-2xl font-amiri font-bold mb-6">{t('contactInfo')}</h2>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
                     <MapPin className="w-6 h-6 text-secondary mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold mb-1">{t('info.address')}</h3>
                       <p className="text-muted-foreground">
-                        Riyadh, Saudi Arabia
+                        {t('details.address')}
                       </p>
                     </div>
                   </div>
@@ -187,7 +187,7 @@ export default function ContactPage() {
                     <Phone className="w-6 h-6 text-secondary mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold mb-1">{t('info.phone')}</h3>
-                      <p className="text-muted-foreground">+966 XX XXX XXXX</p>
+                      <p className="text-muted-foreground">{t('details.phone')}</p>
                     </div>
                   </div>
 
@@ -195,7 +195,7 @@ export default function ContactPage() {
                     <Mail className="w-6 h-6 text-secondary mt-1 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold mb-1">{t('info.email')}</h3>
-                      <p className="text-muted-foreground">hello@lentocoffee.com</p>
+                      <p className="text-muted-foreground">{t('details.email')}</p>
                     </div>
                   </div>
                 </div>

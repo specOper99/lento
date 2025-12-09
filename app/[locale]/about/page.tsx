@@ -98,15 +98,15 @@ export default async function AboutPage({ params }: AboutPageProps) {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <h2 className="text-3xl md:text-5xl font-amiri font-bold">
-              The Lento Process
+              {t('process.title')}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {[
-                { step: '1', title: 'Selection', desc: 'Carefully selected beans from the finest origins' },
-                { step: '2', title: 'Roasting', desc: 'Slow-roasted to perfection with patience' },
-                { step: '3', title: 'Quality', desc: 'Each batch tested for exceptional quality' },
-                { step: '4', title: 'Delivery', desc: 'Fresh coffee delivered with care' },
+                { step: '1', key: 'step1' },
+                { step: '2', key: 'step2' },
+                { step: '3', key: 'step3' },
+                { step: '4', key: 'step4' },
               ].map((item, index) => (
                 <div
                   key={item.step}
@@ -116,8 +116,8 @@ export default async function AboutPage({ params }: AboutPageProps) {
                   <div className="text-6xl font-amiri font-bold text-secondary/20 mb-4">
                     {item.step}
                   </div>
-                  <h4 className="text-xl font-amiri font-bold mb-2">{item.title}</h4>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  <h4 className="text-xl font-amiri font-bold mb-2">{t(`process.${item.key}.title`)}</h4>
+                  <p className="text-sm text-muted-foreground">{t(`process.${item.key}.desc`)}</p>
                 </div>
               ))}
             </div>

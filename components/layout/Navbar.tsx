@@ -39,7 +39,7 @@ export function Navbar({ locale }: NavbarProps) {
               </div>
             </div>
             <span className="text-2xl font-amiri font-bold text-foreground">
-              {locale === 'ar' ? 'قهوة لينتو' : 'Lento Coffee'}
+              {t('brand')}
             </span>
           </Link>
 

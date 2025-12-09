@@ -111,7 +111,7 @@ export default function ProductsClient({ products, categories, locale }: Product
 
           {/* Results Count */}
           <div className="text-center mt-4 text-sm text-muted-foreground">
-            {filteredProducts.length} {filteredProducts.length === 1 ? 'product' : 'products'}
+            {t('count', {count: filteredProducts.length})}
           </div>
         </div>
       </section>
@@ -134,7 +134,7 @@ export default function ProductsClient({ products, categories, locale }: Product
           ) : (
             <div className="text-center py-20">
               <p className="text-2xl text-muted-foreground">
-                No products found matching your criteria
+                {t('noResults')}
               </p>
             </div>
           )}

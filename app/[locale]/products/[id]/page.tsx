@@ -109,10 +109,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 {product.inStock ? (
                   <span className="flex items-center gap-2 text-emerald-600">
                     <Package className="w-5 h-5" />
-                    In Stock
+                    {t('inStock')}
                   </span>
                 ) : (
-                  <span className="text-red-600">Out of Stock</span>
+                  <span className="text-red-600">{t('outOfStock')}</span>
                 )}
               </div>
 
@@ -125,7 +125,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
               {/* Description */}
               <div>
-                <h2 className="text-2xl font-amiri font-bold mb-4">Description</h2>
+                <h2 className="text-2xl font-amiri font-bold mb-4">{t('description')}</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {description}
                 </p>
@@ -137,7 +137,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   <div className="p-4 bg-muted rounded-lg">
                     <div className="flex items-center gap-2 mb-2">
                       <Flame className="w-5 h-5 text-secondary" />
-                      <span className="font-semibold">Roast Level</span>
+                      <span className="font-semibold">{t('roastLevel')}</span>
                     </div>
                     <p className="text-muted-foreground capitalize">{product.roastLevel}</p>
                   </div>
@@ -146,7 +146,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   <div className="p-4 bg-muted rounded-lg">
                     <div className="flex items-center gap-2 mb-2">
                       <Package className="w-5 h-5 text-secondary" />
-                      <span className="font-semibold">Origin</span>
+                      <span className="font-semibold">{t('origin')}</span>
                     </div>
                     <p className="text-muted-foreground">{product.origin}</p>
                   </div>
