@@ -5,6 +5,7 @@ import { Divider } from '@/components/patterns/Divider';
 import { FlyingCarpet } from '@/components/patterns/FlyingCarpet';
 import { FeaturedProductsSection, FeaturedProductsSkeleton } from '@/components/sections/FeaturedProductsSection';
 import { Button } from '@/components/ui/Button';
+import { CoffeeVideoPlayer } from '@/components/ui/CoffeeVideoPlayer';
 import { ArrowRight } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
@@ -86,10 +87,37 @@ export default async function HomePage({ params }: HomePageProps) {
         </div>
       </section>
 
-      {/* Featured Products Section - Streamed with Suspense */}
-      <Suspense fallback={<FeaturedProductsSkeleton />}>
-        <FeaturedProductsSection locale={locale} />
-      </Suspense>
+      {/* Coffee Experience Video Section */}
+      <section className="py-20 relative overflow-hidden bg-gradient-to-b from-background via-muted/30 to-background">
+        <div className="absolute inset-0 opacity-5">
+          <CarpetPattern variant="geometric" className="w-full h-full" />
+        </div>
+        
+        <div className="container-custom relative z-10">
+          <div className="max-w-5xl mx-auto">
+            {/* Section Header */}
+            <div className="text-center mb-12 space-y-4">
+              <h2 className="text-4xl md:text-5xl font-amiri font-bold">
+                {locale === 'ar' ? 'تجربة القهوة' : 'The Coffee Experience'}
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                {locale === 'ar' 
+                  ? 'شاهد رحلة حبوب القهوة من المزرعة إلى فنجانك'
+                  : 'Watch the journey of coffee beans from farm to your cup'
+                }
+              </p>
+            </div>
+            
+            {/* Video Container */}
+            <CoffeeVideoPlayer locale={locale} />
+            
+            {/* Decorative divider below */}
+            <div className="flex justify-center mt-12">
+              <Divider variant="ornate" />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Brand Story Section */}
       <section className="py-20 relative overflow-hidden">
@@ -181,6 +209,59 @@ export default async function HomePage({ params }: HomePageProps) {
                 </Button>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products Section - ELEGANT SHOWCASE */}
+      <section className="py-24 relative overflow-hidden bg-gradient-to-b from-muted/20 via-background to-background">
+        {/* Decorative background pattern */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <CarpetPattern variant="medallion" className="w-full h-full" />
+        </div>
+        
+        {/* Sparkle effects */}
+        <MagicSparkles count={20} />
+        
+        <div className="container-custom relative z-10">
+          {/* Elegant Section Header */}
+          <div className="text-center mb-16 space-y-6">
+            <div className="flex justify-center mb-4">
+              <CarpetPattern variant="medallion" size={80} className="opacity-40" />
+            </div>
+            <h2 className="text-4xl md:text-6xl font-amiri font-bold text-border-bg">
+              {locale === 'ar' ? 'منتجاتنا المميزة' : 'Our Signature Collection'}
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+              {locale === 'ar' 
+                ? 'اكتشف مجموعتنا الفاخرة من أجود أنواع القهوة العربية'
+                : 'Discover our exquisite selection of premium Arabian coffee'
+              }
+            </p>
+            <Divider variant="ornate" />
+          </div>
+          
+          {/* Products Grid with elegant wrapper */}
+          <div className="relative">
+            {/* Decorative frame corners */}
+            <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-secondary/40 rounded-tl-3xl" />
+            <div className="absolute -top-4 -right-4 w-24 h-24 border-t-2 border-r-2 border-secondary/40 rounded-tr-3xl" />
+            <div className="absolute -bottom-4 -left-4 w-24 h-24 border-b-2 border-l-2 border-secondary/40 rounded-bl-3xl" />
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-secondary/40 rounded-br-3xl" />
+            
+            <Suspense fallback={<FeaturedProductsSkeleton />}>
+              <FeaturedProductsSection locale={locale} />
+            </Suspense>
+          </div>
+          
+          {/* Call to action */}
+          <div className="text-center mt-16">
+            <Link href={`/${locale}/products`}>
+              <Button size="lg" variant="primary" className="group px-10">
+                {locale === 'ar' ? 'استكشف جميع المنتجات' : 'Explore All Products'}
+                <ArrowRight className={`w-5 h-5 ${locale === 'ar' ? 'mr-2 rotate-180' : 'ml-2'} transition-transform group-hover:translate-x-1`} />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
