@@ -85,6 +85,7 @@
             "subject": "Subject",
             "message": "Your Message",
             "submit": "Send Message",
+            "sending": "Sending...",
             "success": "Thank you! We'll get back to you soon.",
             "error": "Something went wrong. Please try again."
         },
