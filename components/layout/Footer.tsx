@@ -1,4 +1,5 @@
-import { Facebook, Instagram, Mail, MapPin, Phone, Twitter } from 'lucide-react';
+import { getActiveSocialLinks, getContactAddress, siteConfig } from '@/lib/site-config';
+import { Facebook, Instagram, Mail, MapPin, Phone, Twitter, Youtube } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { CarpetCorner } from '../patterns/CarpetCorner';
@@ -8,6 +9,14 @@ import { Divider } from '../patterns/Divider';
 interface FooterProps {
   locale: string;
 }
+
+// Map of social platform to icon component
+const socialIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+  instagram: Instagram,
+  twitter: Twitter,
+  facebook: Facebook,
+  youtube: Youtube,
+};
 
 export function Footer({ locale }: FooterProps) {
   const t = useTranslations('footer');
@@ -23,11 +32,15 @@ export function Footer({ locale }: FooterProps) {
     { href: `/${locale}/contact`, label: tNav('contact') },
   ];
 
-  const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-  ];
+  // Get active social links from site config
+  const activeSocials = getActiveSocialLinks();
+  const socialLinks = Object.entries(activeSocials)
+    .filter(([, url]) => url && url.length > 0)
+    .map(([platform, url]) => ({
+      icon: socialIcons[platform] || Instagram,
+      href: url as string,
+      label: platform.charAt(0).toUpperCase() + platform.slice(1),
+    }));
 
   return (
     <footer className="relative bg-gradient-to-b from-background to-muted border-t-2 border-border overflow-hidden">
@@ -46,10 +59,10 @@ export function Footer({ locale }: FooterProps) {
           {/* Brand Column */}
           <div className="md:col-span-2">
             <h3 className="text-3xl font-amiri font-bold mb-4">
-              {tNav('brand')}
+              {siteConfig.brand.name}
             </h3>
             <p className="text-muted-foreground mb-6 max-w-md">
-              {t('tagline')}
+              {siteConfig.brand.tagline}
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -91,19 +104,19 @@ export function Footer({ locale }: FooterProps) {
               <li className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
                 <span className="text-muted-foreground text-sm">
-                  {tContact('details.address')}
+                  {getContactAddress(locale)}
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <Phone className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
                 <span className="text-muted-foreground text-sm">
-                  {tContact('details.phone')}
+                  {siteConfig.contact.phone}
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
                 <span className="text-muted-foreground text-sm">
-                  {tContact('details.email')}
+                  {siteConfig.contact.email}
                 </span>
               </li>
             </ul>
@@ -115,7 +128,7 @@ export function Footer({ locale }: FooterProps) {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <p>
-            © {currentYear} {tNav('brand')}. {t('rights')}
+            © {currentYear} {siteConfig.brand.name}. {t('rights')}
           </p>
           <div className="flex gap-6">
             <Link href="#" className="hover:text-secondary transition-colors">

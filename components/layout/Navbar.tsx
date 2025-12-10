@@ -1,5 +1,6 @@
 'use client';
 
+import { siteConfig } from '@/lib/site-config';
 import { Coffee, Menu, Sparkles, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
@@ -71,7 +72,7 @@ export function Navbar({ locale }: NavbarProps) {
               {/* Brand name with elegant styling */}
               <div className="flex flex-col relative">
                 <span className="text-xl sm:text-2xl font-amiri font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] bg-clip-text text-transparent group-hover:animate-shimmer transition-all duration-300">
-                  {t('brand')}
+                  {siteConfig.brand.name}
                 </span>
                 {/* Decorative underline */}
                 <div className="h-[1px] w-0 group-hover:w-full bg-gradient-to-r from-secondary via-primary to-secondary transition-all duration-500 ease-out" />
@@ -170,7 +171,7 @@ export function Navbar({ locale }: NavbarProps) {
                 <Coffee className="w-6 h-6 text-primary" />
               </div>
               <span className="text-xl font-amiri font-bold text-foreground">
-                {t('brand')}
+                {siteConfig.brand.name}
               </span>
             </div>
           </div>

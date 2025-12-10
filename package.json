@@ -1,7 +1,7 @@
 {
-  "name": "lento-coffee",
+  "name": "easy-landing-page",
   "version": "1.0.0",
-  "description": "Lento Coffee - A luxury coffee brand with Arabian carpet aesthetics",
+  "description": "Easy Landing Page - A customizable landing page template with Arabian carpet aesthetics",
   "private": true,
   "scripts": {
     "dev": "next dev",
